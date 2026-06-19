@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Champions: Unbound Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">Prototype App</p>
+      <h1>Champions: Unbound</h1>
+      <p>Track Health, AP, turns, allies, and Signature Technique rolls.</p>
+    </header>
+
+    <section class="controls-panel">
+      <button id="newGameBtn">New Game</button>
+      <button id="endTurnBtn" class="primary">End Turn</button>
+      <div class="turn-badge">Current Turn: <span id="currentTurn">Player 1</span></div>
+    </section>
+
+    <section class="players">
+      <article class="player-card active" id="p1Card">
+        <input class="name-input" id="p1Name" value="Player 1" />
+        <div class="stat-grid">
+          <div class="stat">
+            <label>Health</label>
+            <div class="counter">
+              <button data-player="p1" data-stat="health" data-change="-1">−</button>
+              <span id="p1Health">20</span>
+              <button data-player="p1" data-stat="health" data-change="1">+</button>
+            </div>
+          </div>
+          <div class="stat">
+            <label>AP</label>
+            <div class="counter">
+              <button data-player="p1" data-stat="ap" data-change="-1">−</button>
+              <span id="p1Ap">6</span>
+              <button data-player="p1" data-stat="ap" data-change="1">+</button>
+            </div>
+          </div>
+          <div class="stat">
+            <label>Hand</label>
+            <div class="counter">
+              <button data-player="p1" data-stat="hand" data-change="-1">−</button>
+              <span id="p1Hand">5</span>
+              <button data-player="p1" data-stat="hand" data-change="1">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="ally-zone">
+          <h3>Ally Slots</h3>
+          <input placeholder="Ally 1" id="p1Ally1" />
+          <input placeholder="Ally 2" id="p1Ally2" />
+          <input placeholder="Influence bonus slot" id="p1Ally3" />
+        </div>
+      </article>
+
+      <article class="player-card" id="p2Card">
+        <input class="name-input" id="p2Name" value="Player 2" />
+        <div class="stat-grid">
+          <div class="stat">
+            <label>Health</label>
+            <div class="counter">
+              <button data-player="p2" data-stat="health" data-change="-1">−</button>
+              <span id="p2Health">20</span>
+              <button data-player="p2" data-stat="health" data-change="1">+</button>
+            </div>
+          </div>
+          <div class="stat">
+            <label>AP</label>
+            <div class="counter">
+              <button data-player="p2" data-stat="ap" data-change="-1">−</button>
+              <span id="p2Ap">6</span>
+              <button data-player="p2" data-stat="ap" data-change="1">+</button>
+            </div>
+          </div>
+          <div class="stat">
+            <label>Hand</label>
+            <div class="counter">
+              <button data-player="p2" data-stat="hand" data-change="-1">−</button>
+              <span id="p2Hand">5</span>
+              <button data-player="p2" data-stat="hand" data-change="1">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="ally-zone">
+          <h3>Ally Slots</h3>
+          <input placeholder="Ally 1" id="p2Ally1" />
+          <input placeholder="Ally 2" id="p2Ally2" />
+          <input placeholder="Influence bonus slot" id="p2Ally3" />
+        </div>
+      </article>
+    </section>
+
+    <section class="roller-card">
+      <h2>Signature Technique Roller</h2>
+      <div class="roller-inputs">
+        <label>
+          Attribute Bonus
+          <input id="attributeBonus" type="number" value="0" />
+        </label>
+        <label>
+          Difficulty Target
+          <input id="difficulty" type="number" value="12" />
+        </label>
+      </div>
+      <button id="rollBtn" class="primary large">Roll d20</button>
+      <div id="rollResult" class="roll-result">Roll result appears here.</div>
+    </section>
+
+    <section class="rules-card">
+      <h2>Locked Rules Reminder</h2>
+      <ul>
+        <li>Max starting Health: 20</li>
+        <li>Max starting AP: 6</li>
+        <li>Max hand size: 5 unless stated</li>
+        <li>Champion Basic Attack: once per turn by default</li>
+        <li>Allies normally do not attack unless Influence effects allow it</li>
+        <li>Nat 1 default: Exhaust 1 AP</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
